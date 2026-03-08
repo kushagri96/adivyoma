@@ -82,13 +82,15 @@ overflow:hidden;
 }
 
 .hero h1{
+color:#002FA7 !important;
 font-size:72px;
 letter-spacing:5px;
-color:#002FA7;
-text-shadow:0 0 15px #002FA7,0 0 15px rgba(0,170,255,0.5);
 margin:20px 0;
 line-height:1.2;
 text-align:center;
+background:none;
+text-shadow:none;
+}
 }
 
 .hero p{
