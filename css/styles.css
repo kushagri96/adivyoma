@@ -144,24 +144,42 @@ text-shadow:
 position:relative;
 z-index:2;
 }
-/* Motion lines under the rocket for illusion */
+
+/* Rocket motion trail illusion */
 .hero .rocket::after{
   content:"";
   position:absolute;
-  width:4px;
-  height:60px;
-  bottom:-60px; /* lines below rocket */
+  width:3px;
+  height:70px;
+  bottom:-60px;
   left:50%;
-  transform:translateX(-50%);
+  transform:translateX(-50%) rotate(0deg);
+
   background: linear-gradient(to bottom, #00aaff, transparent);
   border-radius:2px;
-  animation: rocketTrail 0.5s infinite;
+
+  box-shadow:
+    -10px 0 0 rgba(0,170,255,0.6),
+    10px 0 0 rgba(0,170,255,0.6);
+
+  animation: rocketTrail 0.8s infinite;
 }
 
 @keyframes rocketTrail{
-  0%{opacity:0.8; transform:translateX(-50%) scaleY(1);}
-  50%{opacity:0.3; transform:translateX(-50%) scaleY(1.2);}
-  100%{opacity:0.8; transform:translateX(-50%) scaleY(1);}
+  0%{
+    opacity:0.9;
+    transform:translateX(-50%) scaleY(1);
+  }
+
+  50%{
+    opacity:0.4;
+    transform:translateX(-50%) scaleY(1.2);
+  }
+
+  100%{
+    opacity:0.9;
+    transform:translateX(-50%) scaleY(1);
+  }
 }
 
 /* HERO TITLE */
