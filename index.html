@@ -1,200 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Adi Vyoma | UPES Rocketry</title>
 
-<title>Rocket Launch Mission</title>
+<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
 
-<link rel="stylesheet" href="css/styles.css">
-
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+<canvas id="stars"></canvas>
 
-<!-- NAVBAR -->
-
-<nav class="navbar">
-
-<h2 class="logo">🚀 Mission</h2>
-
-<ul>
-
-<li><a href="#hero">Home</a></li>
-<li><a href="#trajectory">Trajectory</a></li>
-<li><a href="#launchsite">Launch Site</a></li>
-<li><a href="#team">Team</a></li>
-
-</ul>
-
+<nav>
+<a href="#about">About</a>
+<a href="#rocket">Rocket</a>
+<a href="#team">Team</a>
+<a href="#gallery">Gallery</a>
+<a href="#sponsors">Sponsors</a>
 </nav>
 
-
-
-<!-- STAR BACKGROUND (your original animation stays the same) -->
-
-<div class="stars"></div>
-<div class="stars2"></div>
-<div class="stars3"></div>
-
-
-
-<!-- HERO SECTION -->
-
-<section id="hero" class="hero">
-
-<h1>Rocket Launch Mission</h1>
-<p>Engineering the future of space exploration</p>
-
-<div class="earth"></div>
-
-
-<div class="launch-area">
-
-<div id="rocket" class="rocket">
-
-<div class="nose"></div>
-<div class="body"></div>
-<div class="window"></div>
-
-<div class="fin fin-left"></div>
-<div class="fin fin-right"></div>
-
-<div class="flame"></div>
-
+<div class="hero">
+<div class="rocket">🚀</div>
+<h1>TEAM ADI VYOMA</h1>
+<p>University of Petroleum and Energy Studies</p>
+<p>International Rocket Engineering Competition 2026</p>
+<div class="countdown" id="countdown"></div>
 </div>
 
-<div class="smoke"></div>
+<section id="about">
+<h2>About Us</h2>
+<p>Team Adi Vyoma is the student rocketry team representing UPES at the International Rocket Engineering Competition.</p>
+<p>Our mission is to design and launch high-performance sounding rockets while advancing aerospace engineering education.</p>
+</section>
 
+<section id="rocket">
+<h2>Rocket Overview</h2>
+<div class="grid">
+<div class="card"><h3>Target Altitude</h3><p>10,000 ft</p></div>
+<div class="card"><h3>Diameter</h3><p>4 inch</p></div>
+<div class="card"><h3>Height</h3><p>~3 m</p></div>
+<div class="card"><h3>Motor</h3><p>L-Class Solid Motor</p></div>
 </div>
-
-
-<button class="launch-btn" onclick="launchRocket()">
-Launch Rocket
-</button>
-
 </section>
 
-
-
-
-<!-- TRAJECTORY -->
-
-<section id="trajectory" class="trajectory-section">
-
-<h2>Launch Trajectory</h2>
-
-<div class="trajectory-path">
-<div class="moving-rocket"></div>
+<section>
+<h2>Rocket Subsystems</h2>
+<div class="grid">
+<div class="card"><h3>Avionics</h3><p>Flight computer & sensors</p></div>
+<div class="card"><h3>Recovery</h3><p>Drogue & main parachute</p></div>
+<div class="card"><h3>Structures</h3><p>Airframe & fins</p></div>
+<div class="card"><h3>Payload</h3><p>Scientific payload system</p></div>
 </div>
-
 </section>
 
-
-
-
-<!-- LAUNCH SITE -->
-
-<section id="launchsite" class="launch-site">
-
-<h2>Launch Site</h2>
-
-<p>
-Our launch system is designed with precision infrastructure,
-optimized fuel systems and advanced telemetry to ensure
-a safe and efficient rocket launch.
-</p>
-
+<section>
+<h2>Rocket Model</h2>
+<div id="rocket-viewer"></div>
 </section>
 
+<section>
+<h2>Flight Trajectory</h2>
+<div class="trajectory">
+<div class="path"></div>
+</div>
+</section>
 
+<section id="team">
+<h2>Team</h2>
+<div class="grid">
 
-
-<!-- TEAM -->
-
-<section id="team" class="team">
-
-<h2>Our Team</h2>
-
-<div class="team-grid">
-
-
-<div class="member">
+<div class="card team-card">
 <img src="team/user.jpg">
 <h3>Priyani Singh</h3>
-<p class="role">Mission Lead</p>
 </div>
 
-<div class="member">
+<div class="card team-card">
 <img src="team/user.jpg">
 <h3>Rushil Sood</h3>
-<p class="role">Propulsion Engineer</p>
 </div>
 
-<div class="member">
+<div class="card team-card">
 <img src="team/user.jpg">
 <h3>Utkarsha Bisht</h3>
-<p class="role">Structures Engineer</p>
 </div>
 
-<div class="member">
+<div class="card team-card">
 <img src="team/user.jpg">
 <h3>Vardaan Luthra</h3>
-<p class="role">Avionics Engineer</p>
 </div>
 
-<div class="member">
+<div class="card team-card">
 <img src="team/user.jpg">
 <h3>Krish Pandey</h3>
-<p class="role">Telemetry Engineer</p>
 </div>
 
-<div class="member">
+<div class="card team-card">
 <img src="team/user.jpg">
 <h3>Amuradhi Thirumala Sai</h3>
-<p class="role">Launch Systems Engineer</p>
 </div>
 
-<div class="member">
+<div class="card team-card">
 <img src="team/user.jpg">
 <h3>Piyush Prasad</h3>
-<p class="role">Flight Dynamics</p>
 </div>
 
-<div class="member">
+<div class="card team-card">
 <img src="team/user.jpg">
 <h3>Swastik Kapila</h3>
-<p class="role">Software & Control</p>
 </div>
 
-<div class="member">
+<div class="card team-card">
 <img src="team/user.jpg">
 <h3>Aradhya Jindal</h3>
-<p class="role">Payload Engineer</p>
 </div>
 
-
 </div>
-
 </section>
 
+<section id="gallery">
+<h2>Rocket Development</h2>
+<div class="gallery">
+<img src="https://images-assets.nasa.gov/image/KSC-20170317-PH_KLS01_0033/KSC-20170317-PH_KLS01_0033~large.jpg">
+<img src="https://images-assets.nasa.gov/image/PIA12235/PIA12235~orig.jpg">
+<img src="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001427/GSFC_20171208_Archive_e001427~orig.jpg">
+<img src="https://images-assets.nasa.gov/image/KSC-20171002-PH_KLS01_0077/KSC-20171002-PH_KLS01_0077~orig.jpg">
+</div>
+</section>
 
+<section>
+<h2>Sponsor Brochure</h2>
+<p style="text-align:center">Download our sponsorship brochure.</p>
+<div style="text-align:center">
+<a href="Team Adi Vyoma Brochure v.3.pdf" download class="download-btn">
+Download Brochure
+</a>
+</div>
+</section>
 
-<script>
+<section id="sponsors">
+<h2>Our Sponsors</h2>
+<div class="sponsors">
+<img src="https://via.placeholder.com/150">
+<img src="https://via.placeholder.com/150">
+<img src="https://via.placeholder.com/150">
+</div>
+</section>
 
-function launchRocket(){
+<section>
+<h2>Launch Site</h2>
+<iframe width="100%" height="450" style="border:0" loading="lazy" allowfullscreen
+src="https://maps.google.com/maps?q=midland%20texas&t=&z=6&ie=UTF8&iwloc=&output=embed">
+</iframe>
+</section>
 
-const rocket = document.getElementById("rocket");
+<footer>
+<p>© 2026 Team Adi Vyoma | UPES Rocketry</p>
+</footer>
 
-rocket.classList.add("launching");
-
-}
-
-</script>
-
+<script src="script.js"></script>
 
 </body>
 </html>
