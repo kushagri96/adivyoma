@@ -47,6 +47,7 @@ nav a {
   background:linear-gradient(#000,#071b3b);
   position:relative;
   z-index:1;
+  padding-top: 70px; 
 }
 
 .hero h1 {
