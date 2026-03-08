@@ -128,10 +128,11 @@ z-index:2;
 
 /* ROCKET */
 
+
 .hero .rocket{
 font-size:120px;
 
-animation: rocketTiltFloat 6s infinite ease-in-out;
+animation: rocketDiagonalFloat 6s infinite ease-in-out;
 
 display:flex;
 justify-content:center;
@@ -148,19 +149,19 @@ position:relative;
 z-index:2;
 }
 
-/* Subtle float + 45 degree right tilt */
-@keyframes rocketTiltFloat{
+/* Subtle 45° upward-right floating motion */
+@keyframes rocketDiagonalFloat{
 
 0%{
-transform:translateY(0) rotate(45deg);
+transform:translate(0px,0px);
 }
 
 50%{
-transform:translateY(-15px) rotate(45deg);
+transform:translate(12px,-15px);
 }
 
 100%{
-transform:translateY(0) rotate(45deg);
+transform:translate(0px,0px);
 }
 
 }
