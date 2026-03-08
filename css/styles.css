@@ -1,0 +1,180 @@
+body{
+margin:0;
+font-family:Arial;
+background:black;
+color:white;
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
+
+canvas#stars{
+position:fixed;
+top:0;
+left:0;
+z-index:-2;
+}
+
+canvas#smoke{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+pointer-events:none;
+}
+
+nav{
+position:fixed;
+width:100%;
+top:0;
+background:rgba(0,0,0,0.7);
+padding:15px;
+text-align:center;
+z-index:1000;
+}
+
+nav a{
+color:white;
+margin:0 20px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(#000,#071b3b);
+}
+
+.hero h1{
+font-size:70px;
+letter-spacing:3px;
+}
+
+.hero p{
+font-size:20px;
+opacity:0.8;
+}
+
+.rocket{
+font-size:80px;
+animation:launch 4s infinite alternate ease-in-out;
+}
+
+@keyframes launch{
+0%{transform:translateY(0)}
+100%{transform:translateY(-40px)}
+}
+
+section{
+padding:100px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+font-size:40px;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+#team .grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+.card{
+background:#0d1323;
+padding:25px;
+border-radius:10px;
+text-align:center;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:15px;
+border:2px solid #00aaff;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:8px;
+}
+
+.sponsors{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
+}
+
+.sponsors img{
+height:70px;
+opacity:0.85;
+}
+
+.countdown{
+font-size:28px;
+text-align:center;
+margin-top:20px;
+}
+
+.trajectory{
+width:100%;
+height:300px;
+border-left:2px solid white;
+border-bottom:2px solid white;
+position:relative;
+}
+
+.path{
+position:absolute;
+width:200px;
+height:200px;
+border:2px dashed #00aaff;
+border-radius:50%;
+top:50px;
+left:100px;
+}
+
+.satellite{
+position:fixed;
+top:120px;
+left:-100px;
+font-size:30px;
+opacity:0.8;
+animation:satMove 60s linear infinite;
+}
+
+@keyframes satMove{
+0%{left:-100px}
+100%{left:110%}
+}
+
+footer{
+text-align:center;
+padding:40px;
+background:#000;
+}
