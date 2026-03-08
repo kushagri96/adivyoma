@@ -73,7 +73,9 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-gap:10px;
+
+padding-top:80px; /* <-- THIS fixes navbar overlap */
+
 background: linear-gradient(#000,#071b3b);
 position:relative;
 overflow:hidden;
@@ -124,20 +126,24 @@ position:relative;
 z-index:2;
 }
 
-/* ROCKET FLOATING */
+/* ROCKET */
 .hero .rocket{
 font-size:120px;
-animation:launch 3s infinite alternate ease-in-out;
+animation:rocketFlight 4s infinite ease-in-out;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+width:100%;
+text-align:center;
+
 text-shadow:0 0 20px #00aaff,0 0 40px #00aaff;
-margin-bottom:20px;
+
+position:relative;
+z-index:2;
 }
 
-/* ROCKET FLOAT ANIMATION */
-@keyframes launch{
-0%{transform:translateY(0) rotate(-2deg);}
-50%{transform:translateY(-60px) rotate(2deg);}
-100%{transform:translateY(0) rotate(-2deg);}
-}
 
 /* HERO TITLE */
 .hero h1{
