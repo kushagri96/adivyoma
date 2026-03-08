@@ -1,165 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Team Adi Vyoma</title>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<title>Team Adi Vyoma | UPES Rocketry</title>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
 
 <style>
+
 body{
-font-family:Arial, Helvetica, sans-serif;
 margin:0;
-background:#0b0f1a;
+font-family:Arial;
+background:black;
 color:white;
+scroll-behavior:smooth;
+overflow-x:hidden;
 }
 
-header{
+canvas#stars{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+nav{
+position:fixed;
+width:100%;
+top:0;
+background:rgba(0,0,0,0.7);
+padding:15px;
 text-align:center;
-padding:60px 20px;
-background:linear-gradient(180deg,#05070f,#0b0f1a);
+z-index:1000;
+}
+
+nav a{
+color:white;
+margin:0 20px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(#000,#071b3b);
+}
+
+.hero h1{
+font-size:70px;
+letter-spacing:3px;
+}
+
+.hero p{
+font-size:20px;
+opacity:0.8;
+}
+
+.rocket{
+font-size:80px;
+animation:launch 4s infinite alternate ease-in-out;
+}
+
+@keyframes launch{
+0%{transform:translateY(0)}
+100%{transform:translateY(-40px)}
 }
 
 section{
-padding:60px 10%;
+padding:100px 20px;
+max-width:1100px;
+margin:auto;
 }
 
 h2{
 text-align:center;
+font-size:40px;
 margin-bottom:40px;
 }
 
-.rocket-img{
-width:100%;
-max-width:700px;
-display:block;
-margin:auto;
-border-radius:12px;
-}
-
-.btn{
-background:#ff4d4d;
-color:white;
-padding:12px 22px;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-display:inline-block;
-margin-top:20px;
-}
-
-.center{
-text-align:center;
-}
-
-.team-grid{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:25px;
 }
 
 .card{
-text-align:center;
-background:#111;
-padding:20px;
-border-radius:12px;
-}
-
-.card img{
-width:100%;
+background:#0d1323;
+padding:25px;
 border-radius:10px;
+text-align:center;
+transition:0.3s;
 }
 
-#map{
-height:400px;
+.card:hover{
+transform:translateY(-10px);
 }
 
-.diagram{
-display:block;
-margin:auto;
-max-width:500px;
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
 width:100%;
+border-radius:8px;
+}
+
+.sponsors{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
+}
+
+.sponsors img{
+height:70px;
+opacity:0.85;
+}
+
+.countdown{
+font-size:28px;
+text-align:center;
+margin-top:20px;
+}
+
+.trajectory{
+width:100%;
+height:300px;
+border-left:2px solid white;
+border-bottom:2px solid white;
+position:relative;
+}
+
+.path{
+position:absolute;
+width:200px;
+height:200px;
+border:2px dashed #00aaff;
+border-radius:50%;
+top:50px;
+left:100px;
+}
+
+#rocket-viewer{
+width:100%;
+height:500px;
 }
 
 footer{
 text-align:center;
-padding:30px;
-background:#05070f;
+padding:40px;
+background:#000;
 }
+
+.brochure-btn{
+background:#00aaff;
+padding:15px 25px;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Team Adi Vyoma</h1>
-<p>Student Rocketry Team | International Rocket Engineering Competition</p>
-</header>
+<canvas id="stars"></canvas>
 
-<section id="rocket">
-<h2>Our Rocket</h2>
-<img class="rocket-img" src="https://images-assets.nasa.gov/image/KSC-20170317-PH_KLS01_0033/KSC-20170317-PH_KLS01_0033~large.jpg" alt="Rocket">
-<p class="center">High power rocket designed for the International Rocket Engineering Competition.</p>
+<nav>
+<a href="#about">About</a>
+<a href="#rocket">Rocket</a>
+<a href="#team">Team</a>
+<a href="#gallery">Gallery</a>
+<a href="#sponsors">Sponsors</a>
+</nav>
+
+<div class="hero">
+
+<div class="rocket">🚀</div>
+
+<h1>TEAM ADI VYOMA</h1>
+
+<p>University of Petroleum and Energy Studies</p>
+
+<p>International Rocket Engineering Competition 2026</p>
+
+<div class="countdown" id="countdown"></div>
+
+</div>
+
+<section id="about">
+
+<h2>About Us</h2>
+
+<p>
+Team Adi Vyoma is the student rocketry team representing UPES at the
+International Rocket Engineering Competition.
+</p>
+
+<p>
+Our mission is to design and launch high-performance sounding rockets
+while advancing aerospace engineering education.
+</p>
+
 </section>
 
-<section id="systems">
-<h2>Rocket Subsystems</h2>
-<img src="rocket-diagram.png" class="diagram" usemap="#rocketmap">
+<section id="rocket">
 
-<map name="rocketmap">
-<area shape="rect" coords="120,20,240,120" onclick="alert('Payload Section')">
-<area shape="rect" coords="120,120,240,220" onclick="alert('Avionics Bay')">
-<area shape="rect" coords="120,220,240,320" onclick="alert('Recovery System')">
-<area shape="rect" coords="120,320,240,420" onclick="alert('Propulsion Motor')">
-</map>
+<h2>Rocket Overview</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Target Altitude</h3>
+<p>10,000 ft</p>
+</div>
+
+<div class="card">
+<h3>Diameter</h3>
+<p>4 inch</p>
+</div>
+
+<div class="card">
+<h3>Height</h3>
+<p>~3 m</p>
+</div>
+
+<div class="card">
+<h3>Motor</h3>
+<p>L-Class Solid Motor</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Rocket Subsystems</h2>
+
+<img src="rocket-diagram.png" style="width:100%;max-width:600px;display:block;margin:auto">
+
+</section>
+
+<section>
+
+<h2>Rocket Model</h2>
+
+<div id="rocket-viewer"></div>
+
+</section>
+
+<section>
+
+<h2>Flight Trajectory</h2>
+
+<div class="trajectory">
+
+<div class="path"></div>
+
+</div>
+
 </section>
 
 <section id="team">
-<h2>Meet the Team</h2>
-<div class="team-grid">
-
-<div class="card"><img src="team/priyani-singh.jpg" alt="Priyani Singh"><h3>Priyani Singh</h3><p>Team Member</p></div>
-<div class="card"><img src="team/rushil-sood.jpg" alt="Rushil Sood"><h3>Rushil Sood</h3><p>Team Member</p></div>
-<div class="card"><img src="team/utkarsha-bisht.jpg" alt="Utkarsha Bisht"><h3>Utkarsha Bisht</h3><p>Team Member</p></div>
-<div class="card"><img src="team/vardaan-luthra.jpg" alt="Vardaan Luthra"><h3>Vardaan Luthra</h3><p>Team Member</p></div>
-<div class="card"><img src="team/krish-pandey.jpg" alt="Krish Pandey"><h3>Krish Pandey</h3><p>Team Member</p></div>
-<div class="card"><img src="team/amuradhi-thirumala-sai.jpg" alt="Amuradhi Thirumala Sai"><h3>Amuradhi Thirumala Sai</h3><p>Team Member</p></div>
-<div class="card"><img src="team/piyush-prasad.jpg" alt="Piyush Prasad"><h3>Piyush Prasad</h3><p>Team Member</p></div>
-<div class="card"><img src="team/swastik-kapila.jpg" alt="Swastik Kapila"><h3>Swastik Kapila</h3><p>Team Member</p></div>
-<div class="card"><img src="team/aradhya-jindal.jpg" alt="Aradhya Jindal"><h3>Aradhya Jindal</h3><p>Team Member</p></div>
-
-</div>
-</section>
-
-<section id="sponsor" class="center">
-<h2>Sponsor Us</h2>
-<p>Download our sponsorship brochure.</p>
-<a href="Team Adi Vyoma Brochure v.3.pdf" class="btn" download>Download Sponsor Brochure</a>
-</section>
-
-<section id="launch">
-<h2>Launch Site</h2>
-<div id="map"></div>
-</section>
-
-<footer>
-<p>© Team Adi Vyoma</p>
-</footer>
-
-<script>
-var map = L.map('map').setView([31.9426, -102.2019], 10);
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-maxZoom:18
-}).addTo(map);
-
-L.marker([31.9426, -102.2019])
-.addTo(map)
-.bindPopup("IREC Launch Site – Midland Texas")
-.openPopup();
-</script>
-
-</body>
-</html>
