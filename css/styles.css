@@ -109,7 +109,7 @@ height:100%;
 background-image:url("../images/earth.jpg");
 
 background-size:50%;
-background-position:center 80%;
+background-position:center 70%;
 background-repeat:no-repeat;
 
 mix-blend-mode:screen;
@@ -130,7 +130,7 @@ z-index:2;
 .hero .rocket{
 font-size:120px;
 
-animation: rocketDepthFlight 4s infinite ease-in-out;
+animation: rocketEscape 4s infinite cubic-bezier(0.25, 0.1, 0.25, 1);
 
 display:flex;
 justify-content:center;
@@ -147,20 +147,25 @@ position:relative;
 z-index:2;
 }
 
-@keyframes rocketDepthFlight{
+@keyframes rocketEscape{
 
 0%{
 transform:translateY(0) scale(1);
 opacity:1;
 }
 
-50%{
-transform:translateY(-40px) scale(1.08);
+40%{
+transform:translateY(-80px) scale(1.06);
+opacity:0.98;
+}
+
+70%{
+transform:translateY(-140px) scale(1.12);
 opacity:0.95;
 }
 
 100%{
-transform:translateY(-20px) scale(1.15);
+transform:translateY(-160px) scale(1.15);
 opacity:0.9;
 }
 
