@@ -275,3 +275,181 @@ while advancing aerospace engineering education.
 </section>
 
 <section id="team">
+
+<h2>Team</h2>
+
+<div class="grid">
+
+<div class="card"><h3>Priyani Singh</h3></div>
+<div class="card"><h3>Rushil Sood</h3></div>
+<div class="card"><h3>Utkarsha Bisht</h3></div>
+<div class="card"><h3>Vardaan Luthra</h3></div>
+<div class="card"><h3>Krish Pandey</h3></div>
+<div class="card"><h3>Amuradhi Thirumala Sai</h3></div>
+<div class="card"><h3>Piyush Prasad</h3></div>
+<div class="card"><h3>Swastik Kapila</h3></div>
+<div class="card"><h3>Aradhya Jindal</h3></div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h2>Rocket Development</h2>
+
+<div class="gallery">
+
+<img src="https://images-assets.nasa.gov/image/KSC-20170317-PH_KLS01_0033/KSC-20170317-PH_KLS01_0033~large.jpg">
+<img src="https://images-assets.nasa.gov/image/PIA12235/PIA12235~orig.jpg">
+<img src="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001427/GSFC_20171208_Archive_e001427~orig.jpg">
+<img src="https://images-assets.nasa.gov/image/KSC-20171002-PH_KLS01_0077/KSC-20171002-PH_KLS01_0077~orig.jpg">
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Sponsor Brochure</h2>
+
+<p style="text-align:center">Download our sponsorship brochure.</p>
+
+<div style="text-align:center">
+<a href="Team Adi Vyoma Brochure v.3.pdf" download class="brochure-btn">Download Brochure</a>
+</div>
+
+</section>
+
+<section id="sponsors">
+
+<h2>Our Sponsors</h2>
+
+<div class="sponsors">
+
+<img src="https://via.placeholder.com/150">
+<img src="https://via.placeholder.com/150">
+<img src="https://via.placeholder.com/150">
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Launch Site</h2>
+
+<iframe width="100%" height="450" style="border:0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=midland%20texas&t=&z=6&ie=UTF8&iwloc=&output=embed"></iframe>
+
+</section>
+
+<footer>
+
+<p>© 2026 Team Adi Vyoma | UPES Rocketry</p>
+
+</footer>
+
+<script>
+
+const targetDate = new Date("June 15, 2026 00:00:00").getTime();
+
+setInterval(function(){
+
+let now = new Date().getTime();
+
+let distance = targetDate - now;
+
+let days = Math.floor(distance/(1000*60*60*24));
+let hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+let minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+
+document.getElementById("countdown").innerHTML =
+days+"d "+hours+"h "+minutes+"m until launch";
+
+},1000);
+
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars=[];
+
+for(let i=0;i<200;i++){
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2
+});
+}
+
+function drawStars(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="white";
+
+stars.forEach(s=>{
+ctx.beginPath();
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+ctx.fill();
+});
+
+requestAnimationFrame(drawStars);
+
+}
+
+drawStars();
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(
+75,
+window.innerWidth/window.innerHeight,
+0.1,
+1000
+);
+
+const renderer = new THREE.WebGLRenderer({antialias:true});
+
+renderer.setSize(
+document.getElementById("rocket-viewer").clientWidth,
+500
+);
+
+document.getElementById("rocket-viewer")
+.appendChild(renderer.domElement);
+
+const bodyGeometry = new THREE.CylinderGeometry(1,1,8,32);
+const material = new THREE.MeshBasicMaterial({color:0xffffff});
+const body = new THREE.Mesh(bodyGeometry,material);
+
+scene.add(body);
+
+const noseGeometry = new THREE.ConeGeometry(1,2,32);
+const nose = new THREE.Mesh(noseGeometry,material);
+
+nose.position.y=5;
+
+scene.add(nose);
+
+camera.position.z=15;
+
+function animate(){
+
+requestAnimationFrame(animate);
+
+body.rotation.y+=0.01;
+nose.rotation.y+=0.01;
+
+renderer.render(scene,camera);
+
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
