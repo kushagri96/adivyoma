@@ -2,20 +2,10 @@ html{
 scroll-behavior:smooth;
 }
 
-body{
-margin:0;
-font-family:Arial;
-background:#020b1c;
-color:white;
-text-align:center;
-overflow-x:hidden;
-}
-
-
 
 /* NAVBAR */
 
-nav{
+.navbar{
 
 position:fixed;
 top:0;
@@ -25,11 +15,11 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 40px;
-z-index:10;
+z-index:1000;
 
 }
 
-nav ul{
+.navbar ul{
 
 display:flex;
 list-style:none;
@@ -39,7 +29,7 @@ padding:0;
 
 }
 
-nav a{
+.navbar a{
 
 color:white;
 text-decoration:none;
@@ -47,317 +37,12 @@ font-weight:bold;
 
 }
 
-nav a:hover{
+.navbar a:hover{
+
 color:#66c2ff;
+
 }
 
 .logo{
 margin:0;
-}
-
-
-
-/* STARFIELD */
-
-.stars,.stars2,.stars3{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-3;
-}
-
-.stars{
-background-image:radial-gradient(white 1px, transparent 1px);
-background-size:50px 50px;
-animation:moveStars 200s linear infinite;
-}
-
-.stars2{
-background-image:radial-gradient(white 1px, transparent 1px);
-background-size:100px 100px;
-animation:moveStars 300s linear infinite;
-opacity:0.5;
-}
-
-.stars3{
-background-image:radial-gradient(white 2px, transparent 2px);
-background-size:150px 150px;
-animation:moveStars 400s linear infinite;
-opacity:0.3;
-}
-
-@keyframes moveStars{
-from{transform:translateY(0)}
-to{transform:translateY(-2000px)}
-}
-
-
-
-/* HERO */
-
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-position:relative;
-padding-top:80px;
-}
-
-.hero h1{
-font-size:60px;
-margin-bottom:10px;
-}
-
-.hero p{
-opacity:0.8;
-margin-bottom:40px;
-}
-
-
-
-/* EARTH */
-
-.earth{
-position:absolute;
-bottom:-250px;
-width:500px;
-height:500px;
-background:url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
-background-size:cover;
-border-radius:50%;
-animation:rotateEarth 60s linear infinite;
-opacity:0.8;
-}
-
-@keyframes rotateEarth{
-from{transform:rotate(0deg)}
-to{transform:rotate(360deg)}
-}
-
-
-
-/* ROCKET */
-
-.launch-area{
-position:relative;
-height:300px;
-display:flex;
-justify-content:center;
-align-items:flex-end;
-}
-
-.rocket{
-position:relative;
-width:80px;
-height:220px;
-transition:transform 4s ease;
-}
-
-.launching{
-transform:translateY(-700px);
-}
-
-
-
-/* BODY */
-
-.body{
-width:80px;
-height:150px;
-background:linear-gradient(white,#dcdcdc);
-border-radius:40px;
-position:absolute;
-bottom:40px;
-}
-
-
-
-/* NOSE */
-
-.nose{
-width:0;
-height:0;
-border-left:40px solid transparent;
-border-right:40px solid transparent;
-border-bottom:60px solid #ff4d4d;
-position:absolute;
-top:0;
-}
-
-
-
-/* WINDOW */
-
-.window{
-width:22px;
-height:22px;
-background:#3fbfff;
-border-radius:50%;
-position:absolute;
-top:80px;
-left:29px;
-border:3px solid white;
-}
-
-
-
-/* FINS */
-
-.fin{
-position:absolute;
-bottom:40px;
-}
-
-.fin-left{
-border-right:30px solid red;
-border-top:20px solid transparent;
-left:-30px;
-}
-
-.fin-right{
-border-left:30px solid red;
-border-top:20px solid transparent;
-right:-30px;
-}
-
-
-
-/* FLAME */
-
-.flame{
-width:20px;
-height:60px;
-background:linear-gradient(yellow,orange,red);
-position:absolute;
-bottom:-60px;
-left:30px;
-border-radius:50%;
-animation:flame 0.2s infinite alternate;
-}
-
-@keyframes flame{
-from{height:60px}
-to{height:90px}
-}
-
-
-
-/* SMOKE */
-
-.smoke{
-width:120px;
-height:40px;
-background:rgba(200,200,200,0.4);
-border-radius:50%;
-position:absolute;
-bottom:0;
-filter:blur(8px);
-animation:smoke 2s infinite;
-}
-
-@keyframes smoke{
-0%{transform:scale(1);opacity:1}
-100%{transform:scale(2);opacity:0}
-}
-
-
-
-/* BUTTON */
-
-.launch-btn{
-margin-top:40px;
-padding:14px 32px;
-font-size:18px;
-background:#ff4d4d;
-border:none;
-border-radius:8px;
-color:white;
-cursor:pointer;
-transition:0.3s;
-}
-
-.launch-btn:hover{
-background:#ff2a2a;
-transform:scale(1.05);
-}
-
-
-
-/* TRAJECTORY */
-
-.trajectory-section{
-padding:100px 20px;
-background:#05122b;
-}
-
-.trajectory-path{
-position:relative;
-width:100%;
-height:200px;
-border-top:2px dashed rgba(255,255,255,0.3);
-border-radius:100%;
-margin-top:80px;
-}
-
-.moving-rocket{
-width:40px;
-height:80px;
-background:white;
-border-radius:20px;
-position:absolute;
-bottom:-40px;
-left:0;
-animation:fly 8s linear infinite;
-}
-
-@keyframes fly{
-0%{left:0;bottom:-40px;}
-50%{left:50%;bottom:120px;}
-100%{left:100%;bottom:0;}
-}
-
-
-
-/* TEAM */
-
-.team{
-padding:100px 20px;
-background:#05122b;
-}
-
-.team-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-max-width:1100px;
-margin:auto;
-margin-top:40px;
-}
-
-.member{
-background:#0a1f44;
-padding:30px;
-border-radius:12px;
-transition:0.3s;
-}
-
-.member:hover{
-transform:translateY(-6px);
-}
-
-.member img{
-width:100px;
-height:100px;
-border-radius:50%;
-object-fit:cover;
-margin-bottom:15px;
-border:3px solid #66c2ff;
-}
-
-.role{
-color:#66c2ff;
-font-weight:bold;
-margin-top:5px;
 }
