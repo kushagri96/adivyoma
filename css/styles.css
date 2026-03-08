@@ -75,10 +75,12 @@ text-align:center;
 
 background:
 linear-gradient(#000,#071b3b),
-url('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg')
-no-repeat center bottom;
+url("https://images-assets.nasa.gov/image/PIA18033/PIA18033~orig.jpg");
 
 background-size:cover;
+background-position:center bottom;
+background-repeat:no-repeat;
+
 position:relative;
 overflow:hidden;
 }
