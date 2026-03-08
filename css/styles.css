@@ -51,25 +51,32 @@ nav a {
 }
 
 .hero h1 {
-  font-size:70px;
-  letter-spacing:3px;
-  margin:10px 0;
+  font-size: 72px;
+  letter-spacing: 4px;
+  color: #00aaff;                 /* subtle mission-blue */
+  text-shadow: 0 0 10px #00aaff, 0 0 20px rgba(0,170,255,0.5);
+  margin: 10px 0;
 }
 
 .hero p {
-  font-size:20px;
-  opacity:0.8;
-  margin:5px 0;
+  font-size: 22px;
+  opacity: 0.8;
+  margin: 5px 0;
+  letter-spacing: 1px;
+  color: #ffffffcc;   /* slightly transparent white for depth */
 }
 
 .rocket {
-  font-size:80px;
-  animation:launch 4s infinite alternate ease-in-out;
+  font-size: 120px;                  /* bigger rocket */
+  animation: launch 3s infinite alternate ease-in-out;
+  text-shadow: 0 0 20px #00aaff, 0 0 40px #00aaff; /* glowing effect */
+  margin-bottom: 20px;
 }
 
 @keyframes launch {
-  0% { transform:translateY(0); }
-  100% { transform:translateY(-40px); }
+  0% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-60px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(-2deg); }
 }
 
 /* SECTIONS */
