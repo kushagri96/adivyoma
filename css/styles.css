@@ -110,7 +110,9 @@ background-size:65%;
 background-position:center 85%;
 background-repeat:no-repeat;
 
-opacity:0.35;
+filter: brightness(0.6) contrast(1.1);
+
+opacity:0.4;
 
 z-index:0;
 }
