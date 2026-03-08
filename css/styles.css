@@ -2,7 +2,7 @@
 body{
 margin:0;
 font-family:'Roboto', Arial, sans-serif;
-background:purple;
+background:black;
 color:white;
 scroll-behavior:smooth;
 overflow-x:hidden;
@@ -130,8 +130,6 @@ z-index:2;
 .hero .rocket{
 font-size:120px;
 
-animation: rocketEscape 4s infinite cubic-bezier(0.25, 0.1, 0.25, 1);
-
 display:flex;
 justify-content:center;
 align-items:center;
@@ -146,29 +144,24 @@ text-shadow:
 position:relative;
 z-index:2;
 }
-
-@keyframes rocketEscape{
-
-0%{
-transform:translateY(0) scale(1);
-opacity:1;
+/* Motion lines under the rocket for illusion */
+.hero .rocket::after{
+  content:"";
+  position:absolute;
+  width:4px;
+  height:60px;
+  bottom:-60px; /* lines below rocket */
+  left:50%;
+  transform:translateX(-50%);
+  background: linear-gradient(to bottom, #00aaff, transparent);
+  border-radius:2px;
+  animation: rocketTrail 0.5s infinite;
 }
 
-40%{
-transform:translateY(-80px) scale(1.06);
-opacity:0.98;
-}
-
-70%{
-transform:translateY(-140px) scale(1.12);
-opacity:0.95;
-}
-
-100%{
-transform:translateY(-160px) scale(1.15);
-opacity:0.9;
-}
-
+@keyframes rocketTrail{
+  0%{opacity:0.8; transform:translateX(-50%) scaleY(1);}
+  50%{opacity:0.3; transform:translateX(-50%) scaleY(1.2);}
+  100%{opacity:0.8; transform:translateX(-50%) scaleY(1);}
 }
 
 /* HERO TITLE */
