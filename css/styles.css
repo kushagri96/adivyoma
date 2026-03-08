@@ -182,33 +182,51 @@ footer {
 }
 
 /* FONT */
-body{
-font-family:'Orbitron', Arial, sans-serif;
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
 }
 
 /* NAVBAR */
-.navbar{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(0,0,0,0.9);
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-z-index:1000;
+.navbar {
+  width: 100%;
+  background: rgba(0,0,0,0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-.nav-logo{
-font-weight:bold;
-font-size:22px;
+.nav-container {
+  max-width: 1200px;   /* keeps navbar inside window frame */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
 }
 
-.nav-links a{
-color:white;
-margin-left:30px;
-text-decoration:none;
-font-weight:500;
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  color: #00aaff;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
 }
 
 .team-grid{
