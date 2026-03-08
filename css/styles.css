@@ -141,10 +141,6 @@ align-items:center;
 width:100%;
 text-align:center;
 
-text-shadow:
-0 0 20px #00aaff,
-0 0 35px rgba(0,170,255,0.5);
-
 position:relative;
 z-index:2;
 }
