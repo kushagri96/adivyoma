@@ -82,7 +82,7 @@ overflow:hidden;
 }
 
 .hero h1{
-color:#002FA7 !important;
+color:#002FA7;
 font-size:72px;
 letter-spacing:5px;
 margin:20px 0;
@@ -90,7 +90,6 @@ line-height:1.2;
 text-align:center;
 background:none;
 text-shadow:none;
-}
 }
 
 .hero p{
@@ -162,23 +161,6 @@ transform:translate(7px,-10px);
 transform:translate(0px,0px);
 }
 
-}
-
-/* HERO TITLE */
-.hero h1{
-font-size:72px;
-letter-spacing:4px;
-color:#00aaff;
-text-shadow:0 0 15px #00aaff,0 0 30px rgba(0,170,255,0.5);
-margin:10px 0;
-}
-
-/* HERO TEXT */
-.hero p{
-font-size:22px;
-opacity:0.85;
-letter-spacing:1px;
-color:#ffffffcc;
 }
 
 /* SECTIONS */
