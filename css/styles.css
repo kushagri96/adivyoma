@@ -1,3 +1,8 @@
+:root{
+--irec-blue:#002FA7;
+--irec-orange:#FF6A00;
+}
+
 /* FONT */
 body{
 margin:0;
@@ -82,7 +87,7 @@ overflow:hidden;
 }
 
 .hero h1{
-color:#002FA7;
+color:var(--irec-orange);
 font-size:72px;
 letter-spacing:5px;
 margin:20px 0;
