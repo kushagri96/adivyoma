@@ -64,7 +64,6 @@ color:white;
 text-decoration:none;
 }
 
-/* HERO */
 .hero{
 height:100vh;
 display:flex;
@@ -73,31 +72,29 @@ justify-content:center;
 align-items:center;
 text-align:center;
 
-background:
-linear-gradient(#000,#071b3b),
-url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg?download=1");
+position:relative;
+overflow:hidden;
 
+background: linear-gradient(#000,#071b3b);
+}
+
+/* Earth background layer */
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+
+background-image:url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
 background-size:cover;
 background-position:center bottom;
 background-repeat:no-repeat;
 
-position:relative;
-overflow:hidden;
+opacity:0.35;
+
+z-index:0;
 }
 
-/* DARK OVERLAY */
-.hero::before{
-content:'';
-position:absolute;
-top:0;
-left:0;
-right:0;
-bottom:0;
-background:rgba(0,0,0,0.55);
-z-index:1;
-}
-
-/* HERO CONTENT ABOVE BACKGROUND */
+/* Ensure content is above Earth */
 .hero > *{
 position:relative;
 z-index:2;
