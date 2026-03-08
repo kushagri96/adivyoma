@@ -9,213 +9,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
 
-<style>
+<link rel="stylesheet" href="css/styles.css">
 
-body{
-margin:0;
-font-family:Arial;
-background:black;
-color:white;
-scroll-behavior:smooth;
-overflow-x:hidden;
-}
-
-canvas#stars{
-position:fixed;
-top:0;
-left:0;
-z-index:-2;
-}
-
-canvas#smoke{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
-pointer-events:none;
-}
-
-/* NAV */
-
-nav{
-position:fixed;
-width:100%;
-top:0;
-background:rgba(0,0,0,0.7);
-padding:15px;
-text-align:center;
-z-index:1000;
-}
-
-nav a{
-color:white;
-margin:0 20px;
-text-decoration:none;
-font-weight:bold;
-}
-
-/* HERO */
-
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(#000,#071b3b);
-}
-
-.hero h1{
-font-size:70px;
-letter-spacing:3px;
-}
-
-.hero p{
-font-size:20px;
-opacity:0.8;
-}
-
-.rocket{
-font-size:80px;
-animation:launch 4s infinite alternate ease-in-out;
-position:relative;
-z-index:5;
-}
-
-@keyframes launch{
-0%{transform:translateY(0)}
-100%{transform:translateY(-40px)}
-}
-
-/* SECTIONS */
-
-section{
-padding:100px 20px;
-max-width:1100px;
-margin:auto;
-}
-
-h2{
-text-align:center;
-font-size:40px;
-margin-bottom:40px;
-}
-
-/* GRID */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-}
-
-/* Force team 3x3 */
-
-#team .grid{
-grid-template-columns:repeat(3,1fr);
-}
-
-.card{
-background:#0d1323;
-padding:25px;
-border-radius:10px;
-text-align:center;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-/* GALLERY */
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.gallery img{
-width:100%;
-border-radius:8px;
-}
-
-/* SPONSORS */
-
-.sponsors{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:40px;
-}
-
-.sponsors img{
-height:70px;
-opacity:0.85;
-}
-
-/* COUNTDOWN */
-
-.countdown{
-font-size:28px;
-text-align:center;
-margin-top:20px;
-}
-
-/* TRAJECTORY */
-
-.trajectory{
-width:100%;
-height:300px;
-border-left:2px solid white;
-border-bottom:2px solid white;
-position:relative;
-}
-
-.path{
-position:absolute;
-width:200px;
-height:200px;
-border:2px dashed #00aaff;
-border-radius:50%;
-top:50px;
-left:100px;
-}
-
-/* 3D ROCKET */
-
-#rocket-viewer{
-width:100%;
-height:500px;
-}
-
-/* SATELLITE */
-
-.satellite{
-position:fixed;
-top:120px;
-left:-100px;
-font-size:30px;
-opacity:0.8;
-z-index:2;
-animation:satMove 60s linear infinite;
-}
-
-@keyframes satMove{
-0%{left:-100px}
-100%{left:110%}
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:40px;
-background:#000;
-}
-
-</style>
 </head>
 
 <body>
@@ -240,7 +35,6 @@ background:#000;
 <h1>TEAM ADI VYOMA</h1>
 
 <p>University of Petroleum and Energy Studies</p>
-
 <p>International Rocket Engineering Competition 2026</p>
 
 <div class="countdown" id="countdown"></div>
@@ -332,15 +126,50 @@ while advancing aerospace engineering education.
 
 <div class="grid">
 
-<div class="card"><h3>Priyani Singh</h3></div>
-<div class="card"><h3>Rushil Sood</h3></div>
-<div class="card"><h3>Utkarsha Bisht</h3></div>
-<div class="card"><h3>Vardaan Luthra</h3></div>
-<div class="card"><h3>Krish Pandey</h3></div>
-<div class="card"><h3>Amuradhi Thirumala Sai</h3></div>
-<div class="card"><h3>Piyush Prasad</h3></div>
-<div class="card"><h3>Swastik Kapila</h3></div>
-<div class="card"><h3>Aradhya Jindal</h3></div>
+<div class="card">
+<img src="team/priyani.jpg">
+<h3>Priyani Singh</h3>
+</div>
+
+<div class="card">
+<img src="team/rushil.jpg">
+<h3>Rushil Sood</h3>
+</div>
+
+<div class="card">
+<img src="team/utkarsha.jpg">
+<h3>Utkarsha Bisht</h3>
+</div>
+
+<div class="card">
+<img src="team/vardaan.jpg">
+<h3>Vardaan Luthra</h3>
+</div>
+
+<div class="card">
+<img src="team/krish.jpg">
+<h3>Krish Pandey</h3>
+</div>
+
+<div class="card">
+<img src="team/amuradhi.jpg">
+<h3>Amuradhi Thirumala Sai</h3>
+</div>
+
+<div class="card">
+<img src="team/piyush.jpg">
+<h3>Piyush Prasad</h3>
+</div>
+
+<div class="card">
+<img src="team/swastik.jpg">
+<h3>Swastik Kapila</h3>
+</div>
+
+<div class="card">
+<img src="team/aradhya.jpg">
+<h3>Aradhya Jindal</h3>
+</div>
 
 </div>
 
@@ -390,25 +219,8 @@ Download Brochure
 
 </section>
 
-<section>
-
-<h2>Launch Site</h2>
-
-<iframe
-width="100%"
-height="450"
-style="border:0"
-loading="lazy"
-allowfullscreen
-src="https://maps.google.com/maps?q=midland%20texas&t=&z=6&ie=UTF8&iwloc=&output=embed">
-</iframe>
-
-</section>
-
 <footer>
-
 <p>© 2026 Team Adi Vyoma | UPES Rocketry</p>
-
 </footer>
 
 <script>
@@ -430,146 +242,6 @@ document.getElementById("countdown").innerHTML =
 days+"d "+hours+"h "+minutes+"m until launch";
 
 },1000);
-
-
-/* STARFIELD */
-
-const canvas = document.getElementById("stars");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let stars=[];
-
-for(let i=0;i<200;i++){
-stars.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2
-});
-}
-
-function drawStars(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle="white";
-
-stars.forEach(s=>{
-ctx.beginPath();
-ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-ctx.fill();
-});
-
-requestAnimationFrame(drawStars);
-}
-
-drawStars();
-
-
-/* SMOKE PARTICLES */
-
-const smokeCanvas=document.getElementById("smoke");
-const smokeCtx=smokeCanvas.getContext("2d");
-
-smokeCanvas.width=window.innerWidth;
-smokeCanvas.height=window.innerHeight;
-
-let particles=[];
-
-class Particle{
-constructor(){
-this.x=window.innerWidth/2;
-this.y=window.innerHeight/2-80;
-this.size=Math.random()*5+2;
-this.speedX=(Math.random()-0.5);
-this.speedY=Math.random()*2;
-this.life=80;
-}
-
-update(){
-this.x+=this.speedX;
-this.y+=this.speedY;
-this.life--;
-}
-
-draw(){
-smokeCtx.fillStyle="rgba(255,255,255,0.15)";
-smokeCtx.beginPath();
-smokeCtx.arc(this.x,this.y,this.size,0,Math.PI*2);
-smokeCtx.fill();
-}
-}
-
-function animateSmoke(){
-
-smokeCtx.clearRect(0,0,smokeCanvas.width,smokeCanvas.height);
-
-particles.push(new Particle());
-
-particles.forEach((p,i)=>{
-p.update();
-p.draw();
-
-if(p.life<=0){
-particles.splice(i,1);
-}
-});
-
-requestAnimationFrame(animateSmoke);
-}
-
-animateSmoke();
-
-
-/* 3D ROCKET */
-
-const scene = new THREE.Scene();
-
-const camera = new THREE.PerspectiveCamera(
-75,
-window.innerWidth/window.innerHeight,
-0.1,
-1000
-);
-
-const renderer = new THREE.WebGLRenderer({antialias:true});
-
-renderer.setSize(
-document.getElementById("rocket-viewer").clientWidth,
-500
-);
-
-document.getElementById("rocket-viewer")
-.appendChild(renderer.domElement);
-
-const bodyGeometry = new THREE.CylinderGeometry(1,1,8,32);
-const material = new THREE.MeshBasicMaterial({color:0xffffff});
-const body = new THREE.Mesh(bodyGeometry,material);
-
-scene.add(body);
-
-const noseGeometry = new THREE.ConeGeometry(1,2,32);
-const nose = new THREE.Mesh(noseGeometry,material);
-
-nose.position.y=5;
-
-scene.add(nose);
-
-camera.position.z=15;
-
-function animate(){
-
-requestAnimationFrame(animate);
-
-body.rotation.y+=0.01;
-nose.rotation.y+=0.01;
-
-renderer.render(scene,camera);
-
-}
-
-animate();
 
 </script>
 
