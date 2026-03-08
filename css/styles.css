@@ -1,3 +1,7 @@
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
 font-family:Arial;
@@ -6,6 +10,51 @@ color:white;
 text-align:center;
 overflow-x:hidden;
 }
+
+
+
+/* NAVBAR */
+
+nav{
+
+position:fixed;
+top:0;
+width:100%;
+background:#061330;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+z-index:10;
+
+}
+
+nav ul{
+
+display:flex;
+list-style:none;
+gap:30px;
+margin:0;
+padding:0;
+
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+font-weight:bold;
+
+}
+
+nav a:hover{
+color:#66c2ff;
+}
+
+.logo{
+margin:0;
+}
+
 
 
 /* STARFIELD */
@@ -53,8 +102,8 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 position:relative;
+padding-top:80px;
 }
-
 
 .hero h1{
 font-size:60px;
@@ -267,14 +316,6 @@ animation:fly 8s linear infinite;
 0%{left:0;bottom:-40px;}
 50%{left:50%;bottom:120px;}
 100%{left:100%;bottom:0;}
-}
-
-
-
-/* LAUNCH SITE */
-
-.launch-site{
-padding:80px 20px;
 }
 
 
