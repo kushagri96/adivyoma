@@ -180,3 +180,61 @@ footer {
   padding:40px;
   background:#000;
 }
+
+/* FONT */
+body{
+font-family:'Orbitron', Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.9);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+z-index:1000;
+}
+
+.nav-logo{
+font-weight:bold;
+font-size:22px;
+}
+
+.nav-links a{
+color:white;
+margin-left:30px;
+text-decoration:none;
+font-weight:500;
+}
+
+/* TEAM GRID 3x3 DESKTOP */
+.team-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+max-width:1100px;
+margin:auto;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media(max-width:900px){
+.team-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:600px){
+.team-grid{
+grid-template-columns:1fr;
+}
+}
+
+.role{
+opacity:0.8;
+font-size:14px;
+margin-top:6px;
+}
