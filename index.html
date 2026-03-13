@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Team Adi Vyoma | UPES Rocketry</title>
 
-<link rel="stylesheet" href="css/styles.css">
-
 <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
-
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
 <canvas id="stars"></canvas>
 
-<nav>
-<a href="#about">About</a>
+<nav class="navbar">
+<div class="nav-container">
+
+<a href="#home" class="nav-logo">🚀 ADI VYOMA</a>
+
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#about">Mission</a>
 <a href="#rocket">Rocket</a>
 <a href="#team">Team</a>
-<a href="#gallery">Development</a>
 <a href="#sponsors">Sponsors</a>
+<a href="#launch">Launch Site</a>
+</div>
+
+</div>
 </nav>
 
-<div class="hero">
-
-<div class="earth"></div>
+<div class="hero" id="home">
 
 <div class="rocket">🚀</div>
 
 <h1>TEAM ADI VYOMA</h1>
 
 <p>University of Petroleum and Energy Studies</p>
-
 <p>International Rocket Engineering Competition 2026</p>
 
 <div class="countdown" id="countdown"></div>
@@ -46,29 +47,9 @@
 
 <h2>About Us</h2>
 
-<p>
-Team Adi Vyoma is the official student rocketry team of the
-University of Petroleum and Energy Studies (UPES).
-</p>
+<p>Team Adi Vyoma is the student rocketry team representing UPES at the International Rocket Engineering Competition.</p>
 
-<p>
-The team represents UPES at the International Rocket Engineering
-Competition (IREC), one of the world's largest intercollegiate
-rocketry competitions held in the United States.
-</p>
-
-<p>
-Our mission is to design, build and launch high-performance
-sounding rockets while pushing the boundaries of student-led
-aerospace engineering.
-</p>
-
-<p>
-Through interdisciplinary collaboration across avionics,
-structures, propulsion, recovery and payload systems,
-the team aims to deliver reliable flight systems and
-advance hands-on aerospace learning.
-</p>
+<p>Our mission is to design and launch high-performance sounding rockets while advancing aerospace engineering education.</p>
 
 </section>
 
@@ -108,10 +89,26 @@ advance hands-on aerospace learning.
 
 <div class="grid">
 
-<div class="card"><h3>Avionics</h3><p>Flight computer & sensors</p></div>
-<div class="card"><h3>Recovery</h3><p>Drogue & main parachute</p></div>
-<div class="card"><h3>Structures</h3><p>Airframe & fins</p></div>
-<div class="card"><h3>Payload</h3><p>Scientific payload system</p></div>
+<div class="card">
+<img src="images/avionics.jpg">
+<h3>Avionics</h3>
+<p>Flight computer & sensors</p>
+</div>
+
+<div class="card">
+<h3>Recovery</h3>
+<p>Drogue & main parachute</p>
+</div>
+
+<div class="card">
+<h3>Structures</h3>
+<p>Airframe & fins</p>
+</div>
+
+<div class="card">
+<h3>Payload</h3>
+<p>Scientific payload system</p>
+</div>
 
 </div>
 
@@ -121,13 +118,7 @@ advance hands-on aerospace learning.
 
 <h2>Rocket Model</h2>
 
-<div class="rocket-model-container">
-
-<img id="rocketModel" src="images/rocket-model.png">
-
-</div>
-
-<p class="rotate-note">Drag left or right to rotate the rocket</p>
+<div id="rocket-viewer"></div>
 
 </section>
 
@@ -136,11 +127,7 @@ advance hands-on aerospace learning.
 <h2>Flight Trajectory</h2>
 
 <div class="trajectory">
-
-<div class="trajectory-line"></div>
-
-<div class="rocket-dot"></div>
-
+<div class="path"></div>
 </div>
 
 </section>
@@ -149,60 +136,60 @@ advance hands-on aerospace learning.
 
 <h2>Team</h2>
 
-<div class="grid team-grid">
+<div class="team-grid">
 
 <div class="card team-card">
 <img src="images/user.jpg">
 <h3>Priyani Singh</h3>
-<p>Team Lead</p>
+<p class="role">Mission Commander</p>
 </div>
 
 <div class="card team-card">
 <img src="images/user.jpg">
 <h3>Rushil Sood</h3>
-<p>Avionics</p>
+<p class="role">Avionics Lead</p>
 </div>
 
 <div class="card team-card">
 <img src="images/user.jpg">
 <h3>Utkarsha Bisht</h3>
-<p>Structures</p>
+<p class="role">Structures Engineer</p>
 </div>
 
 <div class="card team-card">
 <img src="images/user.jpg">
 <h3>Vardaan Luthra</h3>
-<p>Recovery</p>
+<p class="role">Propulsion Systems</p>
 </div>
 
 <div class="card team-card">
 <img src="images/user.jpg">
 <h3>Krish Pandey</h3>
-<p>Payload</p>
+<p class="role">Payload Integration</p>
 </div>
 
 <div class="card team-card">
 <img src="images/user.jpg">
 <h3>Amuradhi Thirumala Sai</h3>
-<p>Avionics</p>
+<p class="role">Recovery Systems</p>
 </div>
 
 <div class="card team-card">
 <img src="images/user.jpg">
 <h3>Piyush Prasad</h3>
-<p>Structures</p>
+<p class="role">Flight Software</p>
 </div>
 
 <div class="card team-card">
 <img src="images/user.jpg">
 <h3>Swastik Kapila</h3>
-<p>Recovery</p>
+<p class="role">Telemetry</p>
 </div>
 
 <div class="card team-card">
 <img src="images/user.jpg">
 <h3>Aradhya Jindal</h3>
-<p>Payload</p>
+<p class="role">Ground Operations</p>
 </div>
 
 </div>
@@ -218,7 +205,21 @@ advance hands-on aerospace learning.
 <img src="images/rocket-dev1.jpg">
 <img src="images/rocket-dev2.jpg">
 <img src="images/rocket-dev3.jpg">
-<img src="images/rocket-cad.jpg">
+<img src="images/rocket-cad.jpg.png">
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Sponsor Brochure</h2>
+
+<p style="text-align:center">Download our sponsorship brochure.</p>
+
+<div style="text-align:center">
+
+<a href="Team Adi Vyoma Brochure v.3.pdf" download class="download-btn">Download Brochure</a>
 
 </div>
 
@@ -235,6 +236,15 @@ advance hands-on aerospace learning.
 <img src="https://via.placeholder.com/150">
 
 </div>
+
+</section>
+
+<section id="launch">
+
+<h2>Launch Site</h2>
+
+<iframe width="100%" height="450" style="border:0" loading="lazy" allowfullscreen
+src="https://maps.google.com/maps?q=midland%20texas&t=&z=6&ie=UTF8&iwloc=&output=embed"></iframe>
 
 </section>
 
