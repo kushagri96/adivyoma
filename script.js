@@ -1,118 +1,74 @@
 /* COUNTDOWN */
+
 const targetDate = new Date("June 15, 2026 00:00:00").getTime();
 
 setInterval(function(){
-    let now = new Date().getTime();
-    let distance = targetDate - now;
 
-    let days = Math.floor(distance/(1000*60*60*24));
-    let hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-    let minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+let now = new Date().getTime();
 
-    document.getElementById("countdown").innerHTML =
-    days + "d " + hours + "h " + minutes + "m until launch";
+let distance = targetDate - now;
+
+let days = Math.floor(distance/(1000*60*60*24));
+let hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+let minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+let seconds = Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML =
+days+"d "+hours+"h "+minutes+"m "+seconds+"s until launch";
 
 },1000);
 
 
 /* STARFIELD */
+
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let stars = [];
+let stars=[];
 
 for(let i=0;i<200;i++){
-    stars.push({
-        x:Math.random()*canvas.width,
-        y:Math.random()*canvas.height,
-        r:Math.random()*2
-    });
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2
+});
 }
 
 function drawStars(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle="white";
 
-    stars.forEach(s=>{
-        ctx.beginPath();
-        ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-        ctx.fill();
-    });
+ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    requestAnimationFrame(drawStars);
+ctx.fillStyle="white";
+
+stars.forEach(s=>{
+ctx.beginPath();
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+ctx.fill();
+});
+
+requestAnimationFrame(drawStars);
+
 }
 
 drawStars();
 
 
-/* 3D ROCKET */
-const scene = new THREE.Scene();
+/* ROCKET IMAGE ROTATION */
 
-const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth/window.innerHeight,
-    0.1,
-    1000
-);
+let rocket = document.getElementById("rocketModel");
+let rotation = 0;
+let dragging=false;
 
-const viewer = document.getElementById("rocket-viewer");
+rocket.addEventListener("mousedown",()=>dragging=true);
 
-const renderer = new THREE.WebGLRenderer({antialias:true});
-renderer.setSize(viewer.offsetWidth, 500);
-viewer.appendChild(renderer.domElement);
+window.addEventListener("mouseup",()=>dragging=false);
 
-const bodyGeometry = new THREE.CylinderGeometry(1,1,8,32);
-const material = new THREE.MeshBasicMaterial({color:0xffffff});
-
-const body = new THREE.Mesh(bodyGeometry,material);
-scene.add(body);
-
-const noseGeometry = new THREE.ConeGeometry(1,2,32);
-const nose = new THREE.Mesh(noseGeometry,material);
-
-nose.position.y=5;
-scene.add(nose);
-
-camera.position.z=15;
-
-function animate(){
-    requestAnimationFrame(animate);
-
-    body.rotation.y+=0.01;
-    nose.rotation.y+=0.01;
-
-    renderer.render(scene,camera);
+window.addEventListener("mousemove",(e)=>{
+if(dragging){
+rotation+=e.movementX;
+rocket.style.transform="rotate("+rotation+"deg)";
 }
-
-animate();
-
-
-/* NAVBAR ACTIVE LINK */
-const sections = document.querySelectorAll("section, .hero");
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-
-  let current = "";
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    const sectionHeight = section.offsetHeight;
-
-    if(pageYOffset >= sectionTop){
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-
-    if(link.getAttribute("href") === "#" + current){
-      link.classList.add("active");
-    }
-  });
-
 });
